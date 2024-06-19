@@ -1,0 +1,117 @@
+<div class="flex flex-col gap-6">
+  <div>
+    <app-home></app-home>
+  </div>
+  <div class="">
+    <form
+      [formGroup]="reservationForm"
+      (ngSubmit)="onSubmit()"
+      class="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+    >
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2"
+          >Check-In Date</label
+        >
+        <input
+          type="date"
+          formControlName="checkInDate"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        <div
+          *ngIf="
+            reservationForm.get('checkInDate')?.invalid &&
+            reservationForm.get('checkInDate')?.touched
+          "
+          class="text-red-500 text-xs mt-1"
+        >
+          Check-in Date is required
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2"
+          >Check-Out Date</label
+        >
+        <input
+          type="date"
+          formControlName="checkOutDate"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        <div
+          *ngIf="
+            reservationForm.get('checkOutDate')?.invalid &&
+            reservationForm.get('checkOutDate')?.touched
+          "
+          class="text-red-500 text-xs mt-1"
+        >
+          Check-out Date is required
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2"
+          >Guest Name</label
+        >
+        <input
+          type="text"
+          formControlName="guestName"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        <div
+          *ngIf="
+            reservationForm.get('guestName')?.invalid &&
+            reservationForm.get('guestName')?.touched
+          "
+          class="text-red-500 text-xs mt-1"
+        >
+          Guest Name is required
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2"
+          >Guest Email</label
+        >
+        <input
+          type="email"
+          formControlName="guestEmail"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        <div
+          *ngIf="
+            reservationForm.get('guestEmail')?.invalid &&
+            reservationForm.get('guestEmail')?.touched
+          "
+          class="text-red-500 text-xs mt-1"
+        >
+          Guest Email is required
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2"
+          >Room Number</label
+        >
+        <input
+          type="number"
+          formControlName="roomNumber"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        <div
+          *ngIf="
+            reservationForm.get('roomNumber')?.invalid &&
+            reservationForm.get('roomNumber')?.touched
+          "
+          class="text-red-500 text-xs mt-1"
+        >
+          Room Number is required
+        </div>
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          type="submit"
+          [disabled]="reservationForm.invalid"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
