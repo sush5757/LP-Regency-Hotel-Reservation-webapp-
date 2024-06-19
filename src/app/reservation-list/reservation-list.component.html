@@ -1,11 +1,11 @@
-<div class="container mx-auto overflow-hidden">
+<div class="container mx-auto">
   <app-home></app-home>
 
   <h2 class="text-2xl font-bold my-4">Reservation List</h2>
 
   <div
     *ngIf="reservations.length; else noReservation"
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-y-scroll"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
     style="max-height: 70vh"
   >
     <div
